@@ -1,0 +1,10 @@
+.example-card {
+    max-width: 400px;
+    background-color:#b995ea;
+    min-height:200px;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  
