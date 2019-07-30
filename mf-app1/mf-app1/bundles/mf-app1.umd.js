@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/elements'), require('@angular/platform-browser'), require('@angular/forms'), require('@angular/material'), require('@angular/common/http'), require('@angular/core')) :
-    typeof define === 'function' && define.amd ? define('mf-app1', ['exports', '@angular/elements', '@angular/platform-browser', '@angular/forms', '@angular/material', '@angular/common/http', '@angular/core'], factory) :
-    (factory((global['mf-app1'] = {}),global.ng.elements,global.ng.platformBrowser,global.ng.forms,global.ng.material,global.ng.common.http,global.ng.core));
-}(this, (function (exports,elements,platformBrowser,forms,material,http,core) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/elements'), require('@angular/platform-browser'), require('@angular/forms'), require('@angular/material'), require('rxjs'), require('@angular/common/http'), require('@angular/core')) :
+    typeof define === 'function' && define.amd ? define('mf-app1', ['exports', '@angular/elements', '@angular/platform-browser', '@angular/forms', '@angular/material', 'rxjs', '@angular/common/http', '@angular/core'], factory) :
+    (factory((global['mf-app1'] = {}),global.ng.elements,global.ng.platformBrowser,global.ng.forms,global.ng.material,global.rxjs,global.ng.common.http,global.ng.core));
+}(this, (function (exports,elements,platformBrowser,forms,material,rxjs,http,core) { 'use strict';
 
     /**
      * @fileoverview added by tsickle
@@ -19,7 +19,8 @@
          * @return {?}
          */
             function () {
-                return this.http.get('/load', { responseType: ( /** @type {?} */('text/html')) });
+                //return  this.http.get('/load',{ responseType: 'text/html' as 'text'});
+                return rxjs.of({});
             };
         MfApp1Service.decorators = [
             { type: core.Injectable }
@@ -60,7 +61,7 @@
             { type: core.Component, args: [{
                         // tslint:disable-next-line:component-selector
                         selector: 'mf-app1',
-                        template: "<mat-card class=\"example-card\">\n    <mat-card-header>\n      <mat-card-title>Micro Frontend App 1</mat-card-title>\n    </mat-card-header>\n   \n    <mat-card-content>\n        <div [innerHTML]=\"html\">\n\n        </div>\n       \n    </mat-card-content>\n\n</mat-card>\n",
+                        template: "<mat-card class=\"example-card\">\n    <mat-card-header>\n      <mat-card-title>Micro Frontend App 1</mat-card-title>\n    </mat-card-header>\n   \n    <mat-card-content>\n        <div>\n            {{html}}\n        </div>\n       \n    </mat-card-content>\n\n</mat-card>\n",
                         styles: [".example-card{max-width:400px;background-color:#5b9cf1}.example-full-width{width:100%}"]
                     }] }
         ];

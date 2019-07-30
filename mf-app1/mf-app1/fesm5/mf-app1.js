@@ -2,6 +2,7 @@ import { createCustomElement } from '@angular/elements';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule, MatInputModule, MatCardModule } from '@angular/material';
+import { of } from 'rxjs';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Injectable, Component, NgModule, Injector } from '@angular/core';
 
@@ -20,7 +21,8 @@ var MfApp1Service = /** @class */ (function () {
      * @return {?}
      */
     function () {
-        return this.http.get('/load', { responseType: (/** @type {?} */ ('text/html')) });
+        //return  this.http.get('/load',{ responseType: 'text/html' as 'text'});
+        return of({});
     };
     MfApp1Service.decorators = [
         { type: Injectable }
@@ -60,7 +62,7 @@ var MfApp1Component = /** @class */ (function () {
         { type: Component, args: [{
                     // tslint:disable-next-line:component-selector
                     selector: 'mf-app1',
-                    template: "<mat-card class=\"example-card\">\n    <mat-card-header>\n      <mat-card-title>Micro Frontend App 1</mat-card-title>\n    </mat-card-header>\n   \n    <mat-card-content>\n        <div [innerHTML]=\"html\">\n\n        </div>\n       \n    </mat-card-content>\n\n</mat-card>\n",
+                    template: "<mat-card class=\"example-card\">\n    <mat-card-header>\n      <mat-card-title>Micro Frontend App 1</mat-card-title>\n    </mat-card-header>\n   \n    <mat-card-content>\n        <div>\n            {{html}}\n        </div>\n       \n    </mat-card-content>\n\n</mat-card>\n",
                     styles: [".example-card{max-width:400px;background-color:#5b9cf1}.example-full-width{width:100%}"]
                 }] }
     ];
